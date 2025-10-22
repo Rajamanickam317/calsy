@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solid Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="calculator-wrapper">
+            <!-- Calculator Section -->
+            <div class="calculator">
+                <!-- Header -->
+                <div class="header">
+                    <svg class="icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="4" y="2" width="16" height="20" rx="2"/>
+                        <line x1="8" y1="6" x2="16" y2="6"/>
+                        <line x1="16" y1="10" x2="16" y2="10"/>
+                        <line x1="12" y1="10" x2="12" y2="10"/>
+                        <line x1="8" y1="10" x2="8" y2="10"/>
+                        <line x1="16" y1="14" x2="16" y2="14"/>
+                        <line x1="12" y1="14" x2="12" y2="14"/>
+                        <line x1="8" y1="14" x2="8" y2="14"/>
+                        <line x1="16" y1="18" x2="16" y2="18"/>
+                        <line x1="12" y1="18" x2="12" y2="18"/>
+                        <line x1="8" y1="18" x2="8" y2="18"/>
+                    </svg>
+                    <h1>Solid Calculator</h1>
+                </div>
+
+                <!-- Display -->
+                <div class="display-container">
+                    <div class="operation-display" id="operationDisplay"></div>
+                    <div class="main-display" id="mainDisplay">0</div>
+                </div>
+
+                <!-- Buttons Grid -->
+                <div class="buttons-grid">
+                    <!-- Row 1 -->
+                    <button class="btn btn-clear" onclick="clearAll()">AC</button>
+                    <button class="btn btn-special" onclick="backspace()">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 4H8l-7 8 7 8h13a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"/>
+                            <line x1="18" y1="9" x2="12" y2="15"/>
+                            <line x1="12" y1="9" x2="18" y2="15"/>
+                        </svg>
+                    </button>
+                    <button class="btn btn-special" onclick="performOperation('%')">%</button>
+                    <button class="btn btn-operator" onclick="performOperation('÷')">÷</button>
+
+                    <!-- Row 2 -->
+                    <button class="btn" onclick="inputDigit('7')">7</button>
+                    <button class="btn" onclick="inputDigit('8')">8</button>
+                    <button class="btn" onclick="inputDigit('9')">9</button>
+                    <button class="btn btn-operator" onclick="performOperation('×')">×</button>
+
+                    <!-- Row 3 -->
+                    <button class="btn" onclick="inputDigit('4')">4</button>
+                    <button class="btn" onclick="inputDigit('5')">5</button>
+                    <button class="btn" onclick="inputDigit('6')">6</button>
+                    <button class="btn btn-operator" onclick="performOperation('-')">−</button>
+
+                    <!-- Row 4 -->
+                    <button class="btn" onclick="inputDigit('1')">1</button>
+                    <button class="btn" onclick="inputDigit('2')">2</button>
+                    <button class="btn" onclick="inputDigit('3')">3</button>
+                    <button class="btn btn-operator" onclick="performOperation('+')">+</button>
+
+                    <!-- Row 5 -->
+                    <button class="btn btn-special" onclick="toggleSign()">±</button>
+                    <button class="btn" onclick="inputDigit('0')">0</button>
+                    <button class="btn" onclick="inputDecimal()">.</button>
+                    <button class="btn btn-equals" onclick="performOperation('=')">=</button>
+
+                    <!-- Row 6 - Advanced -->
+                    <button class="btn btn-special" onclick="performSpecialOperation('sqrt')">√x</button>
+                    <button class="btn btn-special" onclick="performSpecialOperation('square')">x²</button>
+                    <button class="btn btn-special" onclick="performSpecialOperation('reciprocal')">1/x</button>
+                    <button class="btn btn-special" onclick="inputPi()">π</button>
+                </div>
+            </div>
+
+            <!-- History Panel -->
+            <div class="history-panel">
+                <div class="history-header">
+                    <h2>History</h2>
+                    <button class="clear-history-btn" onclick="clearHistory()" title="Clear History">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="1 4 1 10 7 10"/>
+                            <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="history-content" id="historyContent">
+                    <div class="no-history">No calculations yet</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
